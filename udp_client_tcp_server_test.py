@@ -59,7 +59,7 @@ class tcpserverThread(threading.Thread):
 		# create a TCP/IP socket
 		server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		# Bind the socket to the port
-		server_address = (str.encode(socket.gethostbyname(socket.gethostname())), network_constants.TCP_PORT)
+		server_address = ('', network_constants.TCP_PORT)
 		# Listen for incoming connections
 		server.bind(server_address);
 		server.listen(1)
