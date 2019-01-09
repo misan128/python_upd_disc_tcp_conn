@@ -44,7 +44,7 @@ class tcpclientThread(threading.Thread):
 		client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		# Bind the socket to the port
 		client_address = self.queue.get(True)
-		print("TCP Client connect to " + client_address[0] + ":" + network_constants.TCP_PORT)
+		print("TCP Client connect to " + client_address[0] + ":" + str(network_constants.TCP_PORT)
 		# Listen for incoming connections
 		client.connect((client_address[0], network_constants.TCP_PORT))
 
