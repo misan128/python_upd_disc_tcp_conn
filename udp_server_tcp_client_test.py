@@ -21,7 +21,7 @@ class udpserverThread (threading.Thread):
 		server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 		server.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 		# Bind the host and port
-		server.bind((network_constants.NETWORK, network_constants.UDP_PORT))
+		server.bind((network_constants.UDP_SERVER_HOST, network_constants.UDP_PORT))
 		
 		data, udp_server_addr = server.recvfrom(1024)
 		print("Received broadcasting from: %s"%str(udp_server_addr))

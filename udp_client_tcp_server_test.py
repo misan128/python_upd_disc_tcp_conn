@@ -36,7 +36,7 @@ class udpclientThread (threading.Thread):
 				# currently using loopback network
 				# use <broadcast> instead
 				# dummy data
-				client.sendto(b'hello_world', (network_constants.NETWORK, network_constants.UDP_PORT))
+				client.sendto(b'hello_world', (network_constants.BROADCAST_ADDR, network_constants.UDP_PORT))
 			else:
 				# if you got an item from the queue (client ip and port)
 				print("TCP Server found")
@@ -59,7 +59,7 @@ class tcpserverThread(threading.Thread):
 		# create a TCP/IP socket
 		server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		# Bind the socket to the port
-		server_address = (network_constants.NETWORK, network_constants.TCP_PORT)
+		server_address = (str.encode(socket.gethostbyname(socket.gethostname())), network_constants.TCP_PORT)
 		# Listen for incoming connections
 		server.bind(server_address);
 		server.listen(1)
